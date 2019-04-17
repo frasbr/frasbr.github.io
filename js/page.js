@@ -1,107 +1,3 @@
-/* class mobileNav {
-    constructor(nav, trigger, container) {
-        this.menu = nav;
-        this.trigger = trigger;
-        this.container = container;
-        this.active = false;
-        this.prevScrollY = 0;
-        this.debounce = null;
-        trigger.addEventListener("click", this.toggle);
-        document.addEventListener("scroll", this.handleScroll);
-    }
-
-    toggle = () => {
-        this.active = !this.active;
-        this.setClass();
-    };
-
-    setClass = () => {
-        if (this.active) {
-            if (this.debounce) {
-                clearTimeout(this.debounce);
-                this.debounce = null;
-            }
-            this.menu.classList.remove("mobile-hidden");
-        } else {
-            this.debounce = setTimeout(() => {
-                this.menu.classList.add("mobile-hidden");
-            }, 300);
-        }
-        setTimeout(() => {
-            this.menu.classList.toggle("mobile-inactive");
-            this.menu.classList.toggle("mobile-active");
-            this.trigger.classList.toggle("open");
-        }, 0);
-    };
-
-    handleScroll = () => {
-        requestAnimationFrame(() => {
-            // Control navbar colour at certain scrollpoints
-            if (window.scrollY > 700) {
-                this.container.classList.add("purple");
-            } else {
-                this.container.classList.remove("purple");
-            }
-            if (window.scrollY > 0) {
-                this.container.classList.add("scrolled");
-            } else {
-                this.container.classList.remove("scrolled");
-            }
-
-            // If user scrolled down then pull the navbar up
-            if (window.scrollY > this.prevScrollY) {
-                this.container.classList.add("pulled");
-            } else {
-                this.container.classList.remove("pulled");
-            }
-            this.prevScrollY = window.scrollY;
-        });
-    };
-}
-
-// Select nav elements
-const hamburger = document.querySelector(".hamburger");
-const navMenu = document.querySelector(".nav-main .nav-menu ul");
-const navContainer = document.querySelector(".nav-main");
-
-// Remove noscript class tag from nav
-// This is done to make sure the nav is visible when javascript is disabled
-navContainer.classList.remove("noscript");
-
-// Create mobile nav object
-const mobileNavMenu = new mobileNav(navMenu, hamburger, navContainer);
-
-const parallaxContainer = document.querySelector(".parallax");
-window.addEventListener("scroll", () => {
-    requestAnimationFrame(() => {
-        if (window.scrollY > 0) {
-            parallaxContainer.style = `transform: translateY(${window.scrollY *
-                0.3}px); opacity: ${1 - window.scrollY * 0.0005}`;
-        }
-    });
-});
-
-// watch for each .section element to enter the page and use CSS to fade it in.
-const observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.remove("not-visited");
-        }
-    });
-});
-const targets = document.querySelectorAll(".section .container");
-targets.forEach(target => {
-    target.classList.add("not-visited"); // this is added here to make sure it is safe to view the page without javascript
-    observer.observe(target);
-});
-
-// add a canvas to the hero
-const hero = document.querySelector(".hero-background");
-const canvas = document.createElement("canvas");
-hero.appendChild(canvas); */
-
-/* ES5 goes down here */
-
 "use strict";
 
 function _instanceof(left, right) {
@@ -133,6 +29,7 @@ function _defineProperty(obj, key, value) {
   } else {
     obj[key] = value;
   }
+
   return obj;
 }
 
@@ -141,10 +38,19 @@ var mobileNav = function mobileNav(nav, trigger, container) {
 
   _classCallCheck(this, mobileNav);
 
-  _defineProperty(this, "toggle", function() {
+  _defineProperty(this, "toggle", function(e) {
+    e.stopPropagation();
     _this.active = !_this.active;
 
     _this.setClass();
+  });
+
+  _defineProperty(this, "closeNav", function(e) {
+    if (_this.active) {
+      _this.active = false;
+
+      _this.setClass();
+    }
   });
 
   _defineProperty(this, "setClass", function() {
@@ -186,7 +92,7 @@ var mobileNav = function mobileNav(nav, trigger, container) {
       }
 
       // If user scrolled down then pull the navbar up
-      if (window.scrollY > _this.prevScrollY) {
+      if (window.scrollY > 10 && window.scrollY > _this.prevScrollY) {
         _this.container.classList.add("pulled");
       } else {
         _this.container.classList.remove("pulled");
@@ -204,18 +110,21 @@ var mobileNav = function mobileNav(nav, trigger, container) {
   this.debounce = null;
   trigger.addEventListener("click", this.toggle);
   document.addEventListener("scroll", this.handleScroll);
+  container.addEventListener("click", this.closeNav);
 };
 
 // Select nav elements
 var hamburger = document.querySelector(".hamburger");
 var navMenu = document.querySelector(".nav-main .nav-menu ul");
-var navContainer = document.querySelector(".nav-main"); // Remove noscript class tag from nav
-// This is done to make sure the nav is visible when javascript is disabled
+var navContainer = document.querySelector(".nav-main");
 
+// Remove noscript class tag from nav to make sure the nav has a background when javascript is disabled
 navContainer.classList.remove("noscript");
 
 // Create mobile nav object
 var mobileNavMenu = new mobileNav(navMenu, hamburger, navContainer);
+
+// Add parallax effect to hero contents
 var parallaxContainer = document.querySelector(".parallax");
 window.addEventListener("scroll", function() {
   requestAnimationFrame(function() {
@@ -243,42 +152,38 @@ targets.forEach(function(target) {
 });
 
 // Rotate testimonials
-const testimonialContainer = document.querySelector(".testimonial");
-const testimonialText = document.querySelector(".testimonial-text");
-const testimonialAuthor = document.querySelector(".author");
-const originalText = testimonialText.textContent;
-const originalAuthor = testimonialAuthor.textContent;
+var testimonialContainer = document.querySelector(".testimonial");
+var testimonialText = document.querySelector(".testimonial-text");
+var testimonialAuthor = document.querySelector(".author");
 
-const testimonials = [
+var testimonials = [
   {
-    text: `My son Alex has been learning drums from Luke this year and has really loved it. He’s been so encouraged and inspired and has gone along in leaps and bounds. He has learnt to recognise the timing and beat in songs and will often start drumming along with his hands to a song on the radio while I'm driving. A real pleasure to see one so young feeling comfortable with his instrument. I can highly recommend Luke as a drumming teacher.`,
-    author: `Mary Lane`
+    text:
+      "My son Alex has been learning drums from Luke this year and has really loved it. He\u2019s been so encouraged and inspired and has gone along in leaps and bounds. He has learnt to recognise the timing and beat in songs and will often start drumming along with his hands to a song on the radio while I'm driving. A real pleasure to see one so young feeling comfortable with his instrument. I can highly recommend Luke as a drumming teacher.",
+    author: "Mary Lane"
   },
   {
-    text: `Luke is one of the best in the world. ‘Internationally renowned’
-    is an understatement; I’m honestly not sure that I’ve met a
-    better drummer. He’s also a pretty great guy and a great teacher
-    as well. Pretty excited to watch this channel grow!`,
-    author: `Bo Brannen`
+    text:
+      "Luke is one of the best in the world. \u2018Internationally renowned\u2019\n    is an understatement; I\u2019m honestly not sure that I\u2019ve met a\n    better drummer. He\u2019s also a pretty great guy and a great teacher\n    as well. Pretty excited to watch this channel grow!",
+    author: "Bo Brannen"
   }
 ];
-
+var originalText = testimonialText.textContent;
+var originalAuthor = testimonialAuthor.textContent;
 testimonials.push({
   text: originalText,
   author: originalAuthor
 });
-
-let testimonialCounter = 0;
-
-setTimeout(() => {
+var testimonialCounter = 0;
+setTimeout(function() {
   testimonialContainer.classList.add("not-visible");
 }, 1000 * 5);
-setInterval(() => {
+setInterval(function() {
   testimonialText.textContent = testimonials[testimonialCounter].text;
   testimonialAuthor.textContent = testimonials[testimonialCounter].author;
   testimonialCounter = (testimonialCounter + 1) % testimonials.length;
   testimonialContainer.classList.remove("not-visible");
-  setTimeout(() => {
+  setTimeout(function() {
     testimonialContainer.classList.add("not-visible");
   }, 1000 * 9);
 }, 1000 * 10);
