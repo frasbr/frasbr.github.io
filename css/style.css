@@ -714,7 +714,6 @@ a {
 .donation-button-text {
   font-size: 1.2rem;
   display: block;
-  width: 80%;
 }
 
 .donation-button-arrow {
@@ -722,9 +721,9 @@ a {
   background-image: url("../img/forward-icon.svg");
   background-position: center;
   background-size: cover;
-  position: relative;
-  top: 5px;
-  left: 5px;
+  position: absolute;
+  top: 20px;
+  right: 10px;
   width: 15px;
   height: 15px;
   -webkit-transition: all 0.1s ease-out;
