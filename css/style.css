@@ -712,6 +712,7 @@ a {
 }
 
 .donation-button-text {
+  font-size: 1.2rem;
   display: block;
   width: 80%;
 }
@@ -910,6 +911,10 @@ footer {
   .section.bg-testimonial .section-text:before {
     margin: 0 auto;
     left: 0px;
+  }
+
+  .donation-button-text {
+    font-size: 1.6rem;
   }
 
   .email-subscribe-form .email-input {
