@@ -615,7 +615,7 @@ a {
 .email-subscribe-form .email-input {
   display: block;
   height: 50px;
-  width: 400px;
+  width: 320px;
   font-size: 1.8rem;
   border-radius: 5px;
   border: none;
@@ -886,6 +886,10 @@ footer {
   .section.bg-testimonial .section-text:before {
     margin: 0 auto;
     left: 0px;
+  }
+
+  .email-subscribe-form .email-input {
+    width: 400px;
   }
 
   .email-image {
