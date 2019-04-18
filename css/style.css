@@ -704,6 +704,7 @@ a {
   -o-transition: all 0.1s ease-out;
   transition: all 0.1s ease-out;
   text-align: center;
+  -webkit-appearance: none;
 }
 
 .donation-button-text {
