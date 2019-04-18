@@ -707,12 +707,17 @@ a {
   -webkit-appearance: none;
 }
 
+.donation-button span {
+  display: none;
+}
+
 .donation-button-text {
-  display: inline;
+  display: block;
+  width: 80%;
 }
 
 .donation-button-arrow {
-  display: inline-block;
+  display: block;
   background-image: url("../img/forward-icon.svg");
   background-position: center;
   background-size: cover;
