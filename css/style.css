@@ -706,6 +706,10 @@ a {
   text-align: center;
 }
 
+.donation-button-text {
+  display: inline;
+}
+
 .donation-button-arrow {
   display: inline-block;
   background-image: url("../img/forward-icon.svg");
