@@ -23,6 +23,47 @@ a {
   color: inherit;
 }
 
+footer {
+  min-height: 150px;
+  padding: 20px;
+  background-color: rgb(5, 5, 5);
+  color: #f1f1f1;
+  font-size: 1.4rem;
+  display: grid;
+  justify-content: center;
+}
+
+footer .footer-row {
+  height: 100px;
+  line-height: 100px;
+  margin: 0 auto;
+}
+
+footer .footer-row.icons {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+footer .footer-row a {
+  height: 30px;
+  width: 30px;
+  overflow: visible;
+  margin-left: 20px;
+  margin-right: 20px;
+  transition: all 0.1s ease-out;
+}
+
+footer .footer-row a:hover {
+  transform: translateY(-2px);
+}
+
+footer .footer-row a img {
+  display: block;
+  filter: invert(1);
+  height: 30px;
+  width: 30px;
+}
+
 /* UTILITY */
 
 .site-container {
@@ -705,15 +746,13 @@ a {
   transition: all 0.1s ease-out;
   text-align: center;
   -webkit-appearance: none;
-}
-
-.donation-button span {
-  display: none;
+  position: relative;
 }
 
 .donation-button-text {
   font-size: 1.2rem;
   display: block;
+  margin-right: 15px;
 }
 
 .donation-button-arrow {
@@ -722,8 +761,8 @@ a {
   background-position: center;
   background-size: cover;
   position: absolute;
-  top: 20px;
-  right: 10px;
+  top: 22px;
+  right: 15px;
   width: 15px;
   height: 15px;
   -webkit-transition: all 0.1s ease-out;
@@ -797,12 +836,6 @@ a {
 
 .section.bg-donate .section-text:before {
   background-color: #5ceb7b;
-}
-
-footer {
-  min-height: 150px;
-  background-color: rgb(5, 5, 5);
-  color: #f1f1f1;
 }
 
 @media screen and (min-width: 380px) {
