@@ -639,6 +639,7 @@ a {
   background-image: none;
   color: #ebebeb;
   cursor: pointer;
+  -webkit-appearance: none;
 }
 
 .youtube-link {
