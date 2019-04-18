@@ -554,7 +554,7 @@ a {
 }
 
 .section .body-text {
-  font-size: 2rem;
+  font-size: 1.8rem;
   max-width: 700px;
   margin: 0;
   margin-bottom: 40px;
@@ -572,6 +572,11 @@ a {
 
 .section .body-text.testimonial.not-visible {
   opacity: 0;
+}
+
+.section .body-text.testimonial .testimonial-text {
+  font-size: 1.6rem;
+  max-width: 290px;
 }
 
 .section .body-text.testimonial .author {
@@ -615,7 +620,7 @@ a {
 .email-subscribe-form .email-input {
   display: block;
   height: 50px;
-  width: 320px;
+  width: 300px;
   font-size: 1.8rem;
   border-radius: 5px;
   border: none;
@@ -631,6 +636,7 @@ a {
   border: none;
   font-size: 1.6rem;
   background-color: #5c3db5;
+  background-image: none;
   color: #ebebeb;
   cursor: pointer;
 }
@@ -786,6 +792,13 @@ footer {
   min-height: 150px;
   background-color: rgb(5, 5, 5);
   color: #f1f1f1;
+}
+
+@media screen and (min-width: 380px) {
+  .section .body-text.testimonial .testimonial-text {
+    font-size: 1.8rem;
+    max-width: 700px;
+  }
 }
 
 @media screen and (min-width: 667px) {
