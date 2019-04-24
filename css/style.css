@@ -29,7 +29,10 @@ footer {
     background-color: rgb(5, 5, 5);
     color: #f1f1f1;
     font-size: 1.4rem;
+    display: -ms-grid;
     display: grid;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
 }
 
@@ -40,7 +43,9 @@ footer .footer-row {
 }
 
 footer .footer-row.icons {
+    display: -ms-grid;
     display: grid;
+    -ms-grid-columns: 1fr 1fr 1fr;
     grid-template-columns: 1fr 1fr 1fr;
 }
 
@@ -50,15 +55,20 @@ footer .footer-row a {
     overflow: visible;
     margin-left: 20px;
     margin-right: 20px;
+    -webkit-transition: all 0.1s ease-out;
+    -o-transition: all 0.1s ease-out;
     transition: all 0.1s ease-out;
 }
 
 footer .footer-row a:hover {
+    -webkit-transform: translateY(-2px);
+    -ms-transform: translateY(-2px);
     transform: translateY(-2px);
 }
 
 footer .footer-row a img {
     display: block;
+    -webkit-filter: invert(1);
     filter: invert(1);
     height: 30px;
     width: 30px;
@@ -373,6 +383,13 @@ footer .footer-row a img {
     );
     background-image: -webkit-linear-gradient(#441fb4, #5c3db5);
     background-image: -o-linear-gradient(#441fb4, #5c3db5);
+    background-image: -webkit-gradient(
+        linear,
+        left top,
+        left bottom,
+        from(#441fb4),
+        to(#5c3db5)
+    );
     background-image: -webkit-gradient(
         linear,
         left top,
@@ -784,7 +801,9 @@ footer .footer-row a img {
 
 .creative-kids {
     margin-top: 120px;
+    display: -ms-grid;
     display: grid;
+    -ms-grid-columns: 1fr;
     grid-template-columns: 1fr;
 }
 
@@ -1079,7 +1098,10 @@ footer .footer-row a img {
     }
 
     .creative-kids {
+        -ms-grid-columns: 1fr 1fr;
         grid-template-columns: 1fr 1fr;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
         align-items: center;
         justify-items: center;
     }
